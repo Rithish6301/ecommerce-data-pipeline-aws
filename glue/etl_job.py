@@ -19,7 +19,7 @@ spark = glueContext.spark_session
 
 #df = spark.read \
 #    .option("multiline", "true") \
-#   .json("s3://rithish-ecommerce-data-pipeline-2026/raw/orders/")
+#   .json("s3://ecommerce-data-pipeline-2026/raw/orders/")
     
 
 
@@ -27,7 +27,7 @@ spark = glueContext.spark_session
 datasource = glueContext.create_dynamic_frame.from_options(
     connection_type="s3",
     connection_options={
-        "paths": ["s3://rithish-ecommerce-data-pipeline-2026/raw/orders/"],
+        "paths": ["s3://ecommerce-data-pipeline-2026/raw/orders/"],
         "recurse": True
     },
     format="json"
@@ -115,7 +115,7 @@ df = df.withColumn("processed_time", current_timestamp())
 # Write to S3
 
 df.write.mode("overwrite").parquet(
-    "s3://rithish-ecommerce-data-pipeline-2026/processed/orders/"
+    "s3://ecommerce-data-pipeline-2026/processed/orders/"
 )
 
 print("ETL Job Completed Successfully")
