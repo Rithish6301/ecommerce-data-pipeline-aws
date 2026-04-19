@@ -8,7 +8,7 @@ import boto3
 
 s3 = boto3.client('s3')
 
-BUCKET_NAME = "rithish-ecommerce-data-pipeline-2026"   # 👈 replace this
+BUCKET_NAME = "ecommerce-data-pipeline-2026"   # 👈 replace this
 S3_PREFIX = "raw/orders/"
 
 fake = Faker()
