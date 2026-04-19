@@ -51,11 +51,11 @@ def introduce_issues(order):
         order[field] = None
 
     elif issue_type == "wrong_type":
-        order["price"] = "unknown"  # should be float
-        order["quantity"] = "two"   # should be int
+        order["price"] = "unknown"  
+        order["quantity"] = "two"   
 
     elif issue_type == "schema_variation":
-        # Rename fields or change structure
+    
         order["userID"] = order.pop("user_id")
         order["productID"] = order.pop("product_id")
         order["order_time"] = order.pop("order_timestamp")
